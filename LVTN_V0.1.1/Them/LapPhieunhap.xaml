@@ -1,0 +1,71 @@
+﻿<Window x:Class="LVTN_V0._1._1.Them.LapPhieunhap"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_V0._1._1.Them"
+        mc:Ignorable="d"
+        Title="Lập Phiếu Nhập Xe Máy" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="2.6*"/>
+            <ColumnDefinition Width="0.2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Column="2" Width="50" Height="20" VerticalAlignment="Top">
+            <Button Name="btnThoat" Content="Back" Width="50" Height="20" Click="btnThoat_Click"/>
+        </WrapPanel>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Mã Phiếu Nhập" Visibility="Hidden"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Ngày Nhập Xe"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Phiếu Đặt Mua"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="Nhân Viên Đặt Mua"/>
+                <TextBox Grid.Column="1" Grid.Row="0" Name="txtma" Visibility="Hidden"/>
+                <DatePicker Grid.Column="1" Grid.Row="1" Name="dpngaydat" IsEnabled="False"/>
+                <ComboBox Grid.Column="1" Grid.Row="2" Name="cmbpm" SelectedValuePath="maPhieudat">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock Text="{Binding maPhieudat}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox Grid.Column="1" Grid.Row="3" Name="cmbnv" SelectedValuePath="manv">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock Text="{Binding tennv}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </Grid>
+            <Grid Height="20" Grid.Row="1" VerticalAlignment="Top" Margin="10">
+                <Button Height="20" Content="Lập" Name="btnLap" Click="btnLap_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

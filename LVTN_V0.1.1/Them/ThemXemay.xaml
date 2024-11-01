@@ -1,0 +1,107 @@
+﻿<Window x:Class="LVTN_V0._1._1.Them.ThemXemay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_V0._1._1.Them"
+        mc:Ignorable="d"
+        Title="Thêm Xe Máy" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="2.6*"/>
+            <ColumnDefinition Width="0.2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Column="2" Width="50" Height="20" VerticalAlignment="Top">
+            <Button Name="btnThoat" Content="Back" Width="50" Height="20" Click="btnThoat_Click"/>
+        </WrapPanel>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Mã Xe Máy" Visibility="Hidden"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Tên Xe Máy"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Nhà Sản Xuất"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="Thể Loại Xe"/>
+                <TextBlock Grid.Column="0" Grid.Row="4" Text="Dòng xe"/>
+                <TextBlock Grid.Column="0" Grid.Row="5" Text="Mô tả"/>
+                <TextBlock Grid.Column="0" Grid.Row="6" Text="Hình xe"/>
+                <TextBlock Grid.Column="0" Grid.Row="7" Text="Số tháng bảo hành"/>
+                <TextBlock Grid.Column="0" Grid.Row="8" Text="Số kilomet bảo hành"/>
+                
+                <TextBox Grid.Column="1" Grid.Row="0" Name="txtma" Visibility="Hidden"/>
+                <TextBox Grid.Column="1" Grid.Row="1" Name="txtten" IsReadOnly="True"/>
+                <ComboBox Grid.Column="1" Grid.Row="2" Name="cmbnsx" SelectedValuePath="mansx">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock Text="{Binding tennsx}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox Grid.Column="1" Grid.Row="3" Name="cmbtl" SelectedValuePath="matl" IsEnabled="False">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock Text="{Binding tentl}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox Grid.Column="1" Grid.Row="4" Name="cmbdong" SelectedValuePath="maDong" SelectionChanged="cmbdong_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path="tenDong"/>
+                                            <Binding Path="mau"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBox Grid.Column="1" Grid.Row="5" Name="txtmota"/>
+                <Button Name="btnPickhinh" Grid.Column="1" Grid.Row="6" Click="btnPickhinh_Click" Content="Chọn hình"/>
+                <TextBox Grid.Column="1" Grid.Row="7" Name="txtsothangbh"/>
+                <TextBox Grid.Column="1" Grid.Row="8" Name="txtsokilometbh"/>
+            </Grid>
+            <Grid Height="120" Grid.Row="1" VerticalAlignment="Top" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Image Name="imgxe" Height="100" Grid.Row="0"/>
+                <Button Height="20" Content="Thêm" Name="btnThem" Click="btnThem_Click" Grid.Row="1"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

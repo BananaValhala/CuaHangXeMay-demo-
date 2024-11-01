@@ -1,0 +1,58 @@
+﻿<Window x:Class="LVTN_V0._1._1.Phieumuaxe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_V0._1._1"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Title="Phiếu đặt mua xe" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <WrapPanel HorizontalAlignment="Right" Grid.Column="1" Width="250" Height="20">
+                    <TextBlock TextAlignment="Left" Width="100" Name="tblma" FontSize="15" Visibility="Hidden"/>
+                    <TextBlock TextAlignment="Left" Width="50" Name="tbljob" FontSize="15" Visibility="Visible"/>
+                    <TextBlock TextAlignment="Right" Width="50" Name="tbluser" FontSize="15"/>
+                    <Button Width="50" Height="20" Name="btnthoat" Click="btnthoat_Click" Content="Back" />
+                </WrapPanel>
+                <WrapPanel Grid.Column="0" HorizontalAlignment="Center" Width="500" >
+                    <Label FontSize="15" Content="Quản lý Phiếu đặt mua xe" Width="490" HorizontalContentAlignment="Center"/>
+                </WrapPanel>
+            </Grid>
+            <Button Height="25" Content="Lập" Name="btnLapPM" Click="btnLapPM_Click"/>
+            <GroupBox Header="Danh sách phiếu đặt mua">
+                <DataGrid Name="dgPDM" Height="350" IsReadOnly="True" AutoGenerateColumns="False" SelectedValuePath="maPhieudat"  CanUserAddRows="False" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã Phiếu đặt" Binding="{Binding maPhieudat}"/>
+                        <DataGridTextColumn Header="Tên nhân viên lập" Binding="{Binding NHANVIEN.tennv}"/>
+                        <DataGridTextColumn Header="Ngày đặt mua" Binding="{Binding ngaydat}"/>
+                        <DataGridTextColumn Header="Tên nhà sản xuất" Binding="{Binding NHASANXUAT.tennsx}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Lập phiếu nhập" Name="btnLapPN" Click="btnLapPN_Click"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Xem chi tiết" Name="btnXemCT" Click="btnXemCT_Click"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>

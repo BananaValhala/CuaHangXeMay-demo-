@@ -1,0 +1,58 @@
+﻿<Window x:Class="LVTN_V0._1._1.Them.ThemKhachhang"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_V0._1._1.Them"
+        mc:Ignorable="d"
+        Title="Thêm Khách Hàng" Height="450" Width="810">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="2.6*"/>
+            <ColumnDefinition Width="0.2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Column="2" Width="50" Height="20" VerticalAlignment="Top">
+            <Button Name="btnThoat" Content="Back" Width="50" Height="20" Click="btnThoat_Click"/>
+        </WrapPanel>
+        
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Mã Khách hàng" Visibility="Hidden"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Tên khách hàng"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Địa chỉ"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="Số Điện Thoại"/>
+                <TextBlock Grid.Column="0" Grid.Row="4" Text="CMND"/>
+                <TextBox Grid.Column="1" Grid.Row="0" Name="txtma" Visibility="Hidden"/>
+                <TextBox Grid.Column="1" Grid.Row="1" Name="txtten"/>
+                <TextBox Grid.Column="1" Grid.Row="2" Name="txtdiachi"/>
+                <TextBox Grid.Column="1" Grid.Row="3" Name="txtsdt"/>
+                <TextBox Grid.Column="1" Grid.Row="4" Name="txtcmnd"/>
+            </Grid>
+            <Grid Height="20" Grid.Row="1" VerticalAlignment="Top" Margin="10">
+                <Button Height="20" Content="Thêm" Name="btnThem" Click="btnThem_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

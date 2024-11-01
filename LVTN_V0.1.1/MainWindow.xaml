@@ -1,0 +1,165 @@
+﻿<Window x:Class="LVTN_V0._1._1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_V0._1._1"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Title="Quản lý Cửa hàng xe máy" Height="500" Width="1000">
+    <Window.Resources>
+        <local:BikeStatusToBooleanConverter x:Key="BikeStatusToBooleanConverter"/>
+    </Window.Resources>
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <WrapPanel HorizontalAlignment="Right" Grid.Column="2" Width="250">
+            <TextBlock TextAlignment="Left" Width="100" Name="tblma" FontSize="15" Visibility="Hidden"/>
+            <TextBlock TextAlignment="Right" Width="50" Name="tbljob" FontSize="15" Visibility="Visible"/>
+            <TextBlock TextAlignment="Right" Width="50" Name="tbluser" FontSize="15"/>
+            <Button Width="50" Name="btnlogout" Content="Log out" Click="btnlogout_Click" Visibility="Visible" Grid.ColumnSpan="2"/>
+        </WrapPanel>
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="Cửa Hàng Xe Máy" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"/>
+        <Grid Grid.Column="2" Grid.Row="1" Height="40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Tìm kiếm Xe"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Dòng xe"/>
+            <TextBlock Grid.Column="2" Grid.Row="0" Text="Nhà sản xuất"/>
+            <TextBlock Grid.Column="3" Grid.Row="0" Text="Thể loại"/>
+            <Button Name="btntimkiem" Content="Tìm" Grid.Column="0" Grid.Row="1" Click="btntimkiem_Click"/>
+            <ComboBox Name="cmbtim_dongxe" Grid.Column="1" Grid.Row="1" SelectedValuePath="maDong">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock Text="{Binding tenDong}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox Name="cmbtim_nhasanxuat" Grid.Column="2" Grid.Row="1" SelectedValuePath="mansx" SelectionChanged="cmbtim_nhasanxuat_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock Text="{Binding tennsx}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox Name="cmbtim_theloai" Grid.Column="3" Grid.Row="1" SelectedValuePath="matl">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock Text="{Binding tentl}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="2" Width="700" HorizontalAlignment="Left">
+            <GroupBox Header="Danh sách xe máy trong cửa hàng" HorizontalAlignment="Left" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=ActualHeight}">
+                <DataGrid Name="dgXemay" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type GroupBox}}, Path=Width}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type GroupBox}}, Path=ActualHeight}" VerticalAlignment="Top" IsReadOnly="True" AutoGenerateColumns="False" SelectedValuePath="maxe"  CanUserAddRows="False" SelectionChanged="dgXemay_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã xe máy" Binding="{Binding maxe}"/>
+                        <DataGridTextColumn Header="Tên xe máy" Binding="{Binding tenxe}"/>
+                        <DataGridTextColumn Header="Giá bán" Binding="{Binding DONGXE.giaban, StringFormat='{}{0:N0}'}"/>
+                        <DataGridTextColumn Header="Màu" Binding="{Binding DONGXE.mau}"/>
+                        <DataGridTextColumn Header="Trạng thái" Binding="{Binding trangthai, Converter={StaticResource BikeStatusToBooleanConverter}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </Grid>
+
+        <Grid Grid.Column="2" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Name="imgHinhxe"/>
+            <Grid Grid.Row="1" Height="100">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="33.3"/>
+                    <RowDefinition Height="33.3"/>
+                    <RowDefinition Height="33.3"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Mô tả:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Bảo hành:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Số Khung:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="1" Grid.Row="0" Name="tblmota"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="1" Grid.Row="1" Name="tblbaohanh"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="1" Grid.Row="2" Name="tblSoKvaSoM"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+        </Grid>
+
+        <DockPanel Grid.Column="1"  Name="menuquanly" HorizontalAlignment="Center" Visibility="Visible">
+            <Menu DockPanel.Dock="Top" >
+                <MenuItem Header="Xe Máy" >
+                    <MenuItem Header="Quản lý xe máy" Click="mnxe_Click"/>
+                    <MenuItem Header="Quản lý dòng xe" Name="mndongxe" Visibility="Visible" Click="mndongxe_Click"/>
+                </MenuItem>
+                <MenuItem Header="Khách hàng" Name="mnkhachhang" Visibility="Visible">
+                    <MenuItem Header="Quản lý khách hàng" Click="mnQLkhachhang_Click"/>
+                </MenuItem>
+                <MenuItem Header="Nhân Viên" Name="mnnhanvien" Visibility="Visible">
+                    <MenuItem Header="Quản lý nhân viên" Click="mnQLnhanvien_Click" />
+                </MenuItem>
+                <MenuItem Header="Hóa đơn và Hợp đồng" Name="mnhoadon" Visibility="Visible">
+                    <MenuItem Header="Hóa đơn trả liền" Name="mnhoadonTL" Click="mnhoadonTL_Click" />
+                    <MenuItem Header="Hợp đồng trả góp" Name="mnhopdongTG" Click="mnhopdongTG_Click" />
+                </MenuItem>
+
+                <MenuItem Header="Đặt mua và nhập xe" Name="mnphieudatmua" Visibility="Visible">
+
+                    <MenuItem Name="mnlapPM" Header="Lập phiếu đặt mua xe" Click="mnlapPM_Click" Visibility="Visible"/>
+                    <MenuItem Name="mnlapPN" Header="Lập phiếu nhập xe" Click="mnlapPN_Click" Visibility="Visible"/>
+
+                </MenuItem>
+                <!--<MenuItem Header="Phiếu nhập xe" Name="mnphieunhapxe" Visibility="Visible">
+
+
+                    </MenuItem>-->
+                <MenuItem Header="Sửa thông tin cá nhân" Click="mnsuattcanhan_Click" Name="mnsuattcanhan" Visibility="Visible"/>
+                <MenuItem Header="Báo cáo" Click="mnbaocao_Click" Name="mnbaocao" Visibility="Visible"/>
+            </Menu>
+        </DockPanel>
+    </Grid>
+    <!--<Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>-->
+</Window>

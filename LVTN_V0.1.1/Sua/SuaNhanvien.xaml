@@ -1,0 +1,85 @@
+﻿<Window x:Class="LVTN_V0._1._1.Sua.SuaNhanvien"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_V0._1._1.Sua"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Sửa Nhân Viên" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="2.6*"/>
+            <ColumnDefinition Width="0.2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Column="2" Width="50" Height="20" VerticalAlignment="Top">
+            <Button Name="btnThoat" Content="Back" Width="50" Height="20" Click="btnThoat_Click"/>
+        </WrapPanel>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Mã Nhân Viên" Visibility="Hidden"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Tên Nhân Viên"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Số Điện Thoại"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="Ngày vào làm"/>
+                <TextBlock Grid.Column="0" Grid.Row="4" Text="Giới Tính"/>
+                <TextBlock Grid.Column="0" Grid.Row="5" Text="CMND"/>
+                <TextBlock Grid.Column="0" Grid.Row="6" Text="Trạng thái"/>
+                <TextBlock Grid.Column="0" Grid.Row="7" Text="Tên Đăng Nhập"/>
+                <TextBlock Grid.Column="0" Grid.Row="8" Text="Password"/>
+                <TextBox Grid.Column="1" Grid.Row="0" Name="txtma" Visibility="Hidden"/>
+                <TextBox Grid.Column="1" Grid.Row="1" Name="txtten"/>
+                <TextBox Grid.Column="1" Grid.Row="2" Name="txtsdt"/>
+                <DatePicker Grid.Column="1" Grid.Row="3" Name="dpngaylam"/>
+                <Grid Grid.Column="1" Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Grid.Column="0"  Name="rdonam" Content="Nam" IsChecked="True" Click="rdonam_Click"/>
+                    <RadioButton Grid.Column="1"  Name="rdonu" Content="Nữ" Click="rdonu_Click"/>
+                </Grid>
+                <TextBox Grid.Column="1" Grid.Row="5" Name="txtcmnd"/>
+                <Grid Grid.Column="1" Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Grid.Column="0"  Name="rdoactive" Content="Active" IsChecked="True" Click="rdoactive_Click"/>
+                    <RadioButton Grid.Column="1"  Name="rdoinactive" Content="Inactive" Click="rdoinactive_Click"/>
+                </Grid>
+                <TextBox Grid.Column="1" Grid.Row="7" Name="txttendn"/>
+                <TextBox Grid.Column="1" Grid.Row="8" Name="txtpasswd"/>
+            </Grid>
+            <Grid Height="20" Grid.Row="1" VerticalAlignment="Top" Margin="10">
+                <Button Height="20" Content="Sửa" Name="btnSua" Click="btnSua_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

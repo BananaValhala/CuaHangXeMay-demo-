@@ -1,0 +1,39 @@
+﻿<Window x:Class="LVTN_V0._1._1.Chitiet.ChitietPhieuNhapXe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_V0._1._1.Chitiet"
+        mc:Ignorable="d"
+        Title="Chi Tiết Phiếu Nhập Xe Máy" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <WrapPanel HorizontalAlignment="Right" Grid.Column="1" Width="50" Height="20">
+                    <Button Width="50" Height="20" Name="btnthoat" Click="btnthoat_Click" Content="Back" />
+                </WrapPanel>
+                <WrapPanel Grid.Column="0" HorizontalAlignment="Center" Width="500" >
+                    <Label FontSize="15" Content="Chi tiết Phiếu Nhập Xe Máy" Width="490" HorizontalContentAlignment="Center"/>
+                </WrapPanel>
+            </Grid>
+            <GroupBox Header="Danh sách các dòng xe nhập vào cửa hàng trong phiếu">
+                <DataGrid Name="dgCTPDM" Height="350" IsReadOnly="True" AutoGenerateColumns="False" SelectedValuePath="maPhieudat"  CanUserAddRows="False" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã Phiếu Nhập" Binding="{Binding maPhieunhap}"/>
+                        <DataGridTextColumn Header="Mã Dòng xe" Binding="{Binding maDong}"/>
+                        <DataGridTextColumn Header="Số Lượng Nhập" Binding="{Binding soluongnhap}"/>
+                        <DataGridTextColumn Header="Đơn Giá Nhập" Binding="{Binding dongianhapxe, StringFormat='{}{0:N0}'}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,105 @@
+﻿<Window x:Class="LVTN_V0._1._1.Them.LapPhieumua"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_V0._1._1.Them"
+        mc:Ignorable="d"
+        Title="Lập Phiếu Đặt Mua Xe" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="2.6*"/>
+            <ColumnDefinition Width="0.2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Name="tblmanv" Grid.Column="0" Visibility="Hidden"/>
+        <WrapPanel Grid.Column="2" Width="50" Height="20" VerticalAlignment="Top">
+            <Button Name="btnThoat" Content="Back" Width="50" Height="20" Click="btnThoat_Click"/>
+        </WrapPanel>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Mã Phiếu Đặt" Visibility="Hidden"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Ngày Đặt Mua"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Nhà Sản Xuất"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="Nhân Viên Đặt Mua"/>
+                <TextBlock Grid.Column="0" Grid.Row="4" Text="Dòng Xe"/>
+                <TextBlock Grid.Column="0" Grid.Row="5" Text="Số lượng Đặt Mua"/>
+                <Button Grid.Column="0" Grid.Row="6" Name="btnthemvaolist" Content="Thêm vào list" Margin="5,10,5,30" VerticalAlignment="Top" Click="btnthemvaolist_Click"/>
+                <TextBox Grid.Column="1" Grid.Row="0" Name="txtma" Visibility="Hidden"/>
+                <DatePicker Grid.Column="1" Grid.Row="1" Name="dpngaydat" IsEnabled="False"/>
+                <ComboBox Grid.Column="1" Grid.Row="2" Name="cmbnsx" SelectedValuePath="mansx" SelectionChanged="cmbnsx_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock Text="{Binding tennsx}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <!--<ComboBox Grid.Column="1" Grid.Row="3" Name="cmbnv" SelectedValuePath="manv">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock Text="{Binding tennv}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>-->
+                <TextBox Name="txttennv" Grid.Column="1" Grid.Row="3" IsReadOnly="True"/>
+                <ComboBox Grid.Column="1" Grid.Row="4" Name="cmbdong" SelectedValuePath="maDong">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path="tenDong"/>
+                                            <Binding Path="mau"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBox Grid.Column="1" Grid.Row="5" Name="txtsoluong"/>
+                <GroupBox Grid.Column="1" Grid.Row="6" Header="Danh sách đặt mua">
+                    <DataGrid Name="dgCTPDM" Height="350" IsReadOnly="True" AutoGenerateColumns="False" SelectedValuePath="maPhieudat"  CanUserAddRows="False" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Mã phiếu đặt" Binding="{Binding maPhieudat}"/>
+                            <DataGridTextColumn Header="Mã dòng xe" Binding="{Binding maDong}"/>
+                            <DataGridTextColumn Header="Số lượng đặt" Binding="{Binding soluongdat}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>
+            </Grid>
+            <Grid Height="20" Grid.Row="1" VerticalAlignment="Top" Margin="10">
+                <Button Height="20" Content="Lập" Name="btnLap" Click="btnLap_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

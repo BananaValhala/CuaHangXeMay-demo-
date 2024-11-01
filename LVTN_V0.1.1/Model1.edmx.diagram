@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="da7784ba3b914a14be37a846ea503df2" Name="Diagram1">
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.BIENLAI" Width="1.5" PointX="15.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.CHITIETPHIEUDAT" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.CHITIETPHIEUNHAP" Width="1.5" PointX="8.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.CHUCVU" Width="1.5" PointX="6.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.DONGXE" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.HOADONTRALIEN" Width="1.5" PointX="10.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.HOPDONGTRAGOP" Width="1.5" PointX="13.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.KHACHHANG" Width="1.5" PointX="8.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.NHANVIEN" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.NHASANXUAT" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.PHIEUDATMUA" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.PHIEUNHAPXE" Width="1.5" PointX="11.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.THELOAI" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CUAHANGXEMAYModel.XEMAY" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_BIENLAI_HOPDONGTRAGOP" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_CHITIETPHIEUDAT_DONGXE" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_CHITIETPHIEUDAT_PHIEUDATMUA" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_CHITIETPHIEUNHAP_DONGXE" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_CHITIETPHIEUNHAP_PHIEUNHAPXE" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_NHANVIEN_CHUCVU" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_DONGXE_NHASANXUAT" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_DONGXE_THELOAI" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_XEMAY_DONGXE" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_HOADONTRALIEN_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_HOADONTRALIEN_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_HOADONTRALIEN_XEMAY" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_HOPDONGTRAGOP_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_HOPDONGTRAGOP_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_HOPDONGTRAGOP_XEMAY" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_PHIEUDATMUA_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_PHIEUNHAPXE_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_PHIEUDATMUA_NHASANXUAT" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_XEMAY_NHASANXUAT" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_PHIEUNHAPXE_PHIEUDATMUA" ManuallyRouted="false" />
+        <AssociationConnector Association="CUAHANGXEMAYModel.FK_XEMAY_THELOAI" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

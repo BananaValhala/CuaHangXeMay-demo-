@@ -1,0 +1,42 @@
+﻿<Window x:Class="LVTN_V0._1._1.Bienlai.BienLai"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_V0._1._1.Bienlai"
+        mc:Ignorable="d"
+        Title="Biên Lai" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <WrapPanel HorizontalAlignment="Right" Grid.Column="1" Width="250" Height="20">
+                    <TextBlock TextAlignment="Left" Width="50" Name="tblmaHD" FontSize="15" Visibility="Hidden"/>
+                    <TextBlock TextAlignment="Right" Width="150" Name="tbluser" FontSize="15"/>
+                    <Button Width="50" Height="20" Name="btnthoat" Click="btnthoat_Click" Content="Back" Grid.ColumnSpan="2"/>
+                </WrapPanel>
+                <WrapPanel Grid.Column="0" HorizontalAlignment="Center" Width="500" >
+                    <Label FontSize="15" Content="Quản lý Biên Lai" Width="490" HorizontalContentAlignment="Center"/>
+                </WrapPanel>
+            </Grid>
+            <Button Height="25" Content="Thêm" Name="btnThemBienlai" Click="btnThemBienlai_Click"/>
+            <GroupBox Header="Danh sách biên lai của hóa đơn này">
+                <DataGrid Name="dgBienlai" Height="350" IsReadOnly="True" AutoGenerateColumns="False" SelectedValuePath="maBienlai"  CanUserAddRows="False" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã biên lai" Binding="{Binding maBienlai}"/>
+                        <DataGridTextColumn Header="Tiền đóng" Binding="{Binding tienDong}"/>
+                        <DataGridTextColumn Header="Tháng đóng" Binding="{Binding thangDong}"/>
+                        <DataGridTextColumn Header="Ngày đóng thực" Binding="{Binding ngayDongthuc}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>

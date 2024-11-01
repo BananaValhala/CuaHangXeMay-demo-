@@ -1,0 +1,65 @@
+﻿<Window x:Class="LVTN_V0._1._1.Dongxe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LVTN_V0._1._1"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Title="Quản lý dòng xe" Height="450" Width="850"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:TheLoaiConverter x:Key="TheLoaiConverter"/>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <WrapPanel HorizontalAlignment="Right" Grid.Column="1" Width="250" Height="20">
+                    <TextBlock TextAlignment="Left" Width="50" Name="tbljob" FontSize="15" Visibility="Visible"/>
+                    <TextBlock TextAlignment="Right" Width="150" Name="tbluser" FontSize="15"/>
+                    <Button Width="50" Height="20" Name="btnthoat" Click="btnthoat_Click" Content="Back" />
+                </WrapPanel>
+                <WrapPanel Grid.Column="0" HorizontalAlignment="Center" Width="500" >
+                    <Label FontSize="15" Content="Quản lý dòng xe" Width="490" HorizontalContentAlignment="Center"/>
+                </WrapPanel>
+            </Grid>
+            <Button Height="25" Content="Thêm" Name="btnThemdongxe" Click="btnThemdongxe_Click"/>
+            <GroupBox Header="Danh sách các dòng xe">
+                <DataGrid Name="dgDongxe" Height="350" IsReadOnly="True" AutoGenerateColumns="False" SelectedValuePath="maDong"  CanUserAddRows="False" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã dòng xe" Binding="{Binding maDong}"/>
+                        <DataGridTextColumn Header="Tên dòng xe" Binding="{Binding tenDong}"/>
+                        <DataGridTextColumn Header="Số lượng còn lại" Binding="{Binding soluongConlai}"/>
+                        <DataGridTextColumn Header="Giá bán thị trường" Binding="{Binding giaban, StringFormat='{}{0:N0}'}"/>
+                        <DataGridTextColumn Header="Màu" Binding="{Binding mau}"/>
+                        <DataGridTextColumn Header="Thể loại" Binding="{Binding matl, Converter={StaticResource TheLoaiConverter}}"/>
+                        <DataGridTextColumn Header="Nhà sản xuất" Binding="{Binding NHASANXUAT.tennsx}"/>
+                        <DataGridTextColumn Header="Số Tháng Bảo Hành" Binding="{Binding baohanh}"/>
+                        <DataGridTextColumn Header="Số kilomet Bảo hành" Binding="{Binding baohanhcayso}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit" Name="btnEditDongxe" Click="btnEditDongxe_Click"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Delete" Name="btnDeleteDongxe" Click="btnDeleteDongxe_Click"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>
